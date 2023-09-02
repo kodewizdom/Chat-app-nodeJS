@@ -4,7 +4,7 @@ let btn = document.getElementById('btn');
 let inputMsg = document.getElementById('newmsg');
 let msgList = document.getElementById('msglist');
 
-btn.onclick = function ecec(){
+btn.onclick = function exec(){
     socket.emit('msg_send',{
         msg:inputMsg.value
     })

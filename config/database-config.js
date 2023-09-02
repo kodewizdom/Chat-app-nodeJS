@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const connectDb = async () =>{
-    await mongoose.connect('mongodb://localhost/chat-app');
-    console.log('start')
+const connect = async () =>{
+    await mongoose.connect('mongodb://127.0.0.1:27017/chat-app');
+    
 }
 
-module.exports = connectDb;
+module.exports = connect;
