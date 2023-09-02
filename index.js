@@ -1,7 +1,9 @@
-const { log } = require('console');
+
 const express = require('express');
 const http = require('http');
 const socketio = require("socket.io");
+
+const connectDb = require('./config/database-config');
 
 const app = express();
 const server = http.createServer(app);
@@ -21,6 +23,8 @@ io.on('connection', (socket) => {
 
 app.use('/', express.static(__dirname + '/public'));
 
-server.listen(3000, () => {
+server.listen(3000, async () => {
     console.log('Server Started');
-})
+    // await connectDb();
+    console.log('mongo db connected');
+});
