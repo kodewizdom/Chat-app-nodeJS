@@ -8,13 +8,12 @@
 </head>
 
 <body>
-    <h1>Chat box</h1>
-    <!-- <%= name %>
-    <%= id %> -->
+    <h1>Room Chat</h1>
+   
     <input id="startchat" type="hidden" data-roomid="<%= id %>"></input>
     <input type="text" id="username" placeholder="username...">
     <input type="text" id="newmsg" placeholder="message..">
-    <!-- <span id="typing">typing....</span> -->
+    
     <button id="btn">Send</button>
 
     <ul id="msglist">
@@ -59,15 +58,7 @@
             msgList.appendChild(limsg);
         })
 
-        // socekt.on('someone_typing',(data)=>{
-        //     spanTyping.style.display = 'block';
-        // })
-
-        // inputMsg.addEventListener('keypress', function(e){
-        //     socket.emit('typing',{
-        //         roomid: startchat.getAttribute('data-roomid')
-        //     });
-        // })
+        
     </script>
 </body>
 
