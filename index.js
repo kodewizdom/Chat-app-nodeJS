@@ -1,10 +1,8 @@
-
 const express = require('express');
 const http = require('http');
 const socketio = require("socket.io");
 
 const connect = require('./config/database-config');
-
 const Chat = require('./models/chat')
 
 const app = express();
@@ -21,17 +19,14 @@ io.on('connection', (socket) => {
     socket.on('msg_send', async (data) =>{
         console.log(data);
         const chat = await Chat.create({
-            roomId: data.roomid,
             user: data.username,
+            roomId: data.roomid,
             content: data.msg
         });
         io.to(data.roomid).emit('msg_rcvd',data);
     });
 
-    // socket.on('typing',(data) => {
-    //     io.to(data.roomid).emit('someone_typing');
-    // });
-
+    
 });
 app.set('view engine','ejs');
 app.use('/', express.static(__dirname + '/public'));
